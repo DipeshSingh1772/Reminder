@@ -4,12 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/dipes/AndroidStudioProjects/Reminder/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/dipes/AndroidStudioProjects/Reminder/app/src/main/res/drawable/addtext_background_format.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/dipes/AndroidStudioProjects/Reminder/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/dipes/AndroidStudioProjects/Reminder/app/src/main/res/drawable/ic_launcher_background.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/dipes/AndroidStudioProjects/Reminder/app/src/main/res/drawable/main_app_icon_background.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/dipes/AndroidStudioProjects/Reminder/app/src/main/res/drawable/reminder_viewarea_format.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/dipes/AndroidStudioProjects/Reminder/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/dipes/AndroidStudioProjects/Reminder/app/src/main/res/layout/fragment_add.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/dipes/AndroidStudioProjects/Reminder/app/src/main/res/layout/fragment_main.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/dipes/AndroidStudioProjects/Reminder/app/src/main/res/layout/recyclerview_format.xml" value="0.25833333333333336" />
       </map>
     </option>
   </component>
