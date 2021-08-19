@@ -23,7 +23,11 @@
         android:id="@+id/addFragment"
         android:name="com.example.reminder.AddFragment"
         android:label="fragment_add"
-        tools:layout="@layout/fragment_add" />
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_addFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editFragment"
         android:name="com.example.reminder.EditFragment"

@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.example.reminder.database.Memo
 import com.example.reminder.databinding.FragmentAddBinding
 import com.example.reminder.viewModel.ApplicationClass
 import com.example.reminder.viewModel.ReminderViewModel
@@ -36,8 +38,16 @@ class AddFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        _binding?.saveBtn?.setOnClickListener{
+            insertMemoData()
+        }
 
+    }
 
+    private fun insertMemoData(){
+        val item:String = _binding?.reminderText?.text.toString()
+        viewModel.insertMemo(Memo(item))
+        findNavController().navigate(R.id.action_addFragment_to_mainFragment)
     }
 
 }
