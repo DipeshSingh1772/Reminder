@@ -54,25 +54,39 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:layout_marginRight="30dp"
-                android:checked="false"/>
+                android:layout_marginEnd="30dp"
+                android:checked="false"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:background="@drawable/addtext_background_format">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/date_btn"
+                android:layout_width="0dp"
+                android:layout_weight="2"
                 android:layout_height="match_parent"
                 android:background="@drawable/addtext_background_format"
                 android:gravity="left|center"
                 android:paddingLeft="20dp"
-                android:text="Place"
+                android:text="Date"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
+
+            <Switch
+                android:id="@+id/date"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginRight="30dp"
+                android:checked="false"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         </LinearLayout>
 

@@ -13,8 +13,12 @@ import com.example.reminder.databinding.FragmentAddBinding
 import com.example.reminder.viewModel.ApplicationClass
 import com.example.reminder.viewModel.ReminderViewModel
 import com.example.reminder.viewModel.ViewModelFactory
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class AddFragment : Fragment() {
 
@@ -48,6 +52,13 @@ class AddFragment : Fragment() {
             findNavController().navigate(R.id.action_addFragment_to_mainFragment)
         }
 
+
+        //time picker
+        binding.timeBtn.setOnClickListener {
+            if(binding.time.isChecked) {
+                openTimePicker()
+            }
+        }
         binding.time.setOnClickListener {
 
             if(binding.time.isChecked) {
@@ -57,6 +68,25 @@ class AddFragment : Fragment() {
             else{
                 binding.time.isChecked = false
                 binding.timeBtn.text = "Time"
+            }
+        }
+
+
+        //Date picker code
+        binding.dateBtn.setOnClickListener {
+            if(binding.date.isChecked) {
+                openDatePicker()
+            }
+        }
+        binding.date.setOnClickListener {
+
+            if(binding.date.isChecked) {
+                binding.date.isChecked = true
+                openDatePicker()
+            }
+            else{
+                binding.date.isChecked = false
+                binding.dateBtn.text = "Date"
             }
         }
 
@@ -85,7 +115,7 @@ class AddFragment : Fragment() {
         picker.show(childFragmentManager,"Tag")
 
         picker.addOnPositiveButtonClickListener {
-            var ampm:String
+            val ampm:String
 
             if(picker.hour >12){
                 ampm = "PM"
@@ -99,9 +129,31 @@ class AddFragment : Fragment() {
                 ampm = "AM"
                 binding.timeBtn.text = "${picker.hour} : ${picker.minute} ${ampm}"
             }
-
-
         }
+        picker.addOnNegativeButtonClickListener{
+            binding.time.isChecked = false
+            binding.timeBtn.text = "Time"
+        }
+    }
+
+    fun openDatePicker(){
+        val today = Calendar.getInstance()
+        val datePicker =
+            MaterialDatePicker.Builder.datePicker()
+                .setTitleText("Select Date")
+                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                .build()
+        datePicker.show(childFragmentManager,"Tag")
+
+        datePicker.addOnPositiveButtonClickListener {
+            binding.dateBtn.text = SimpleDateFormat("EEEE, dd MMMM").format(datePicker.selection)
+        }
+
+        datePicker.addOnNegativeButtonClickListener{
+            binding.date.isChecked = false
+            binding.dateBtn.text = "Date"
+        }
+
     }
 
 }
