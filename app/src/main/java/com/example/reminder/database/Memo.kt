@@ -13,8 +13,8 @@ data class Memo(
     @ColumnInfo(name = "Memo")
     val memo:String,
 
-    @ColumnInfo(name = "Status")
-    val status:Boolean = false
+    @ColumnInfo(name = "TD")
+    val TimeDate:Long
 
 ){
 
