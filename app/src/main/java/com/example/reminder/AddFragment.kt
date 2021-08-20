@@ -38,16 +38,21 @@ class AddFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        _binding?.saveBtn?.setOnClickListener{
+        binding.saveBtn.setOnClickListener{
             insertMemoData()
+        }
+        binding.cancelBtn.setOnClickListener{
+            findNavController().navigate(R.id.action_addFragment_to_mainFragment)
         }
 
     }
 
     private fun insertMemoData(){
-        val item:String = _binding?.reminderText?.text.toString()
-        viewModel.insertMemo(Memo(item))
-        findNavController().navigate(R.id.action_addFragment_to_mainFragment)
+        val item:String = binding.reminderText.text.toString()
+        if(item.isNotEmpty()) {
+            viewModel.insertMemo(Memo(0,item,false))
+            findNavController().navigate(R.id.action_addFragment_to_mainFragment)
+        }
     }
 
 }
