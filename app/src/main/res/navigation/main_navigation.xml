@@ -18,6 +18,10 @@
             android:id="@+id/action_mainFragment_to_editFragment"
             app:destination="@id/editFragment"
             app:popUpTo="@id/mainFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment"
+            app:popUpTo="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -34,4 +38,9 @@
         android:name="com.example.reminder.EditFragment"
         android:label="fragment_edit"
         tools:layout="@layout/fragment_edit" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.reminder.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
 </navigation>

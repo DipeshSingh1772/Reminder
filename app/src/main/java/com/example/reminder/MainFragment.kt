@@ -41,6 +41,10 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.moreBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_aboutFragment)
+        }
+
         _binding?.addBtn?.setOnClickListener {
 
             findNavController().navigate(R.id.action_mainFragment_to_addFragment)
