@@ -13,8 +13,14 @@ data class Memo(
     @ColumnInfo(name = "Memo")
     val memo:String,
 
-    @ColumnInfo(name = "TD")
-    val TimeDate:Long
+    @ColumnInfo(name = "Date")
+    val Date:Long,
+
+    @ColumnInfo(name = "Hour")
+    val Hour:Int,
+
+    @ColumnInfo(name = "Min")
+    val Min:Int
 
 ){
 

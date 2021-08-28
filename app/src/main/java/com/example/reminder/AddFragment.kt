@@ -26,7 +26,6 @@ class AddFragment : Fragment() {
     private var _binding:FragmentAddBinding? = null
     private val binding get() = _binding!!
 
-
     private val viewModel:ReminderViewModel by activityViewModels{
         ViewModelFactory(
             (activity?.application as ApplicationClass).dataBase.memoDao()
@@ -93,10 +92,17 @@ class AddFragment : Fragment() {
 
     }
 
+    //var to save date in database
+    var date:Long = 0
+
+    //to save time in database
+    var hour:Int = 0
+    var Min:Int = 0
+
     private fun insertMemoData(){
         val item:String = binding.reminderText.text.toString()
         if(item.isNotEmpty()) {
-            viewModel.insertMemo(Memo(0,item,0))
+            viewModel.insertMemo(Memo(0,item,date,hour,Min))
             findNavController().navigate(R.id.action_addFragment_to_mainFragment)
         }
         else{
@@ -123,17 +129,25 @@ class AddFragment : Fragment() {
 
             if(picker.hour >12){
                 ampm = "PM"
+                hour = picker.hour - 12
+                Min = picker.minute
                 binding.timeBtn.text = "${picker.hour - 12} : ${picker.minute} ${ampm}"
             }
             else if(picker.hour == 12){
                 ampm = "PM"
+                hour = picker.hour
+                Min = picker.minute
                 binding.timeBtn.text = "${picker.hour} : ${picker.minute} ${ampm}"
             }
             else{
                 ampm = "AM"
+                hour = picker.hour
+                Min = picker.minute
                 binding.timeBtn.text = "${picker.hour} : ${picker.minute} ${ampm}"
             }
         }
+
+
         picker.addOnNegativeButtonClickListener{
             binding.time.isChecked = false
             binding.timeBtn.text = "Time"
@@ -151,6 +165,7 @@ class AddFragment : Fragment() {
 
         datePicker.addOnPositiveButtonClickListener {
             binding.dateBtn.text = SimpleDateFormat("EEEE, dd MMMM").format(datePicker.selection)
+            date = datePicker.selection!!
         }
 
         datePicker.addOnNegativeButtonClickListener{
